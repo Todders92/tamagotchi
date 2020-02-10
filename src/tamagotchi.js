@@ -15,6 +15,13 @@ export class Tamagotchi {
       this.sleepLevel--;
     }, 1800000);
   }
+  butDidYouDie() {
+    if (this.foodLevel > 0) {
+      return false;
+    } else {
+      return true;
+    }
+  }
   feed() {
     this.foodLevel = 100;
   }
