@@ -9,7 +9,7 @@ export class Tamagotchi {
       if (this.foodLevel > 0) {
         this.foodLevel--;
       }
-    }, 90000);
+    }, 1000*60*1.5); 
   }
 
   setSleep() {
@@ -17,7 +17,7 @@ export class Tamagotchi {
       if (this.sleepLevel > 0) {
         this.sleepLevel--; 
         }
-    }, 1800000);
+    }, 1000*60*30);
   }
   butDidYouDie() {
     if (this.foodLevel > 0) {
@@ -37,5 +37,15 @@ export class Tamagotchi {
   }
   sleep() {
     this.sleepLevel = 10;
+  }
+  butAreYouSick() {
+    if (this.foodLevel <= 30) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+  medicine() {
+    this.foodLevel += 30;
   }
 };

@@ -47,4 +47,13 @@ describe('Kenny', () => {
     kenny.sleep();
     expect(kenny.sleepLevel).toEqual(10);
   });
+  test('should be sick if food level drops too low', ()=> {
+    jest.advanceTimersByTime(1000*60*105);
+    expect(kenny.butAreYouSick()).toEqual(true);
+  });
+  test('should cure sickness when consuming medicine', () => {
+    jest.advanceTimersByTime(1000*60*105);
+    kenny.medicine();
+    expect(kenny.butAreYouSick()).toEqual(false);
+  });
 });
