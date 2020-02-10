@@ -25,6 +25,11 @@ describe('Kenny', () => {
     expect(kenny.sleepLevel).toEqual(10);
   });
 
+  test('should get very hungry if 10 seconds pass without feeding', function() {
+    jest.advanceTimersByTime(1000*60*10*15);
+    expect(kenny.butDidYouDie()).toEqual(true);
+  });
+
   test('should have a food level of 100 if it is fed', function() {
     jest.advanceTimersByTime(90001);
     kenny.feed();
