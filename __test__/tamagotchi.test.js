@@ -42,4 +42,9 @@ describe('Kenny', () => {
       expect(kenny.foodLevel).toEqual(kenny.foodLevel / 2)
   });
 
+  test('should have a sleep level of 10 if it sleeps', () => {
+    jest.advanceTimersByTime(1000*60*60);
+    kenny.sleep();
+    expect(kenny.sleepLevel).toEqual(10);
+  });
 });
