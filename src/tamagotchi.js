@@ -6,13 +6,17 @@ export class Tamagotchi {
   }
   setHunger() {
     setInterval(() => {
-      this.foodLevel--;
+      if (this.foodLevel > 0) {
+        this.foodLevel--;
+      }
     }, 90000);
   }
 
   setSleep() {
     setInterval(() => {
-      this.sleepLevel--;
+      if (this.sleepLevel > 0) {
+        this.sleepLevel--; 
+        }
     }, 1800000);
   }
   butDidYouDie() {
@@ -24,5 +28,14 @@ export class Tamagotchi {
   }
   feed() {
     this.foodLevel = 100;
+  }
+
+  butDidYouSleep() {
+    if (this.sleepLevel === 0) {
+      return (this.foodLevel / 2);
+    }
+  }
+  sleep() {
+    this.sleepLevel = 10;
   }
 };

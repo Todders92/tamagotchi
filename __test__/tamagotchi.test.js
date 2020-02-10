@@ -21,7 +21,7 @@ describe('Kenny', () => {
     expect(kenny.foodLevel).toEqual(100);
   });
 
-  test('should have a food level of 100 when it is created', () => {
+  test('should have a sleep level of 100 when it is created', () => {
     expect(kenny.sleepLevel).toEqual(10);
   });
 
@@ -34,6 +34,12 @@ describe('Kenny', () => {
     jest.advanceTimersByTime(90001);
     kenny.feed();
     expect(kenny.foodLevel).toEqual(100);
+  });
+
+  test('should half food level when sleep level hits 0',() => {
+
+    jest.advanceTimersByTime(1000*60*300);
+      expect(kenny.foodLevel).toEqual(kenny.foodLevel / 2)
   });
 
 });
