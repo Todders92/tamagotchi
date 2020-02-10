@@ -7,8 +7,9 @@ describe('Kenny', () => {
   let kenny;
 
   beforeEach(function() {
-    kenny = new Tamagotchi("Kenny", 0, 100);
+    kenny = new Tamagotchi("Kenny", 10, 100);
     kenny.setHunger();
+    kenny.setSleep();
   });
 
   afterEach(function() {
@@ -19,4 +20,15 @@ describe('Kenny', () => {
     expect(kenny.name).toEqual("Kenny");
     expect(kenny.foodLevel).toEqual(100);
   });
+
+  test('should have a food level of 100 when it is created', () => {
+    expect(kenny.sleepLevel).toEqual(10);
+  });
+
+  test('should have a food level of 100 if it is fed', function() {
+    jest.advanceTimersByTime(90001);
+    kenny.feed();
+    expect(kenny.foodLevel).toEqual(100);
+  });
+
 });
