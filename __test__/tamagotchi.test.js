@@ -7,7 +7,7 @@ describe('Kenny', () => {
   let kenny;
 
   beforeEach(function() {
-    kenny = new Tamagotchi("Kenny", 10, 100);
+    kenny = new Tamagotchi("Kenny", 10, 100, 0);
     kenny.setHunger();
     kenny.setSleep();
   });
@@ -55,5 +55,10 @@ describe('Kenny', () => {
     jest.advanceTimersByTime(1000*60*105);
     kenny.medicine();
     expect(kenny.butAreYouSick()).toEqual(false);
+  });
+  test('actions towards keeping kenny alive grant xp', () => {
+    // jest.advanceTimersByTime(1000*60*100);
+    kenny.feed();
+    expect(kenny.experience).toEqual(10);
   });
 });

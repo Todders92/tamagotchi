@@ -1,8 +1,9 @@
 export class Tamagotchi {
-  constructor(name, sleep, foodLevel) {
+  constructor(name, sleep, foodLevel, experience) {
     this.name = name;
     this.sleepLevel = 10;
     this.foodLevel = 100;
+    this.experience = experience
   }
   setHunger() {
     setInterval(() => {
@@ -28,6 +29,7 @@ export class Tamagotchi {
   }
   feed() {
     this.foodLevel = 100;
+    this.experience += 10;
   }
 
   butDidYouSleep() {
@@ -37,6 +39,7 @@ export class Tamagotchi {
   }
   sleep() {
     this.sleepLevel = 10;
+    this.experience += 10;
   }
   butAreYouSick() {
     if (this.foodLevel <= 30) {
@@ -47,5 +50,6 @@ export class Tamagotchi {
   }
   medicine() {
     this.foodLevel += 30;
+    this.experience +=5;
   }
 };
